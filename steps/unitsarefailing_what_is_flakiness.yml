@@ -7,13 +7,20 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Well, sounds like we have some flaky tests here... Here is some [good information](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html) on flaky tests"
-        delay: 2000
-      - text: "Let me know when you're done going over it and ready to get those tests fixed!"
+      - text: "Try running it a few more times until you see the results are inconsistent and let me know when you're done."
+        delay: 1300
 trigger:
   type: user_message
   params: 
     person: keen
   flowNode:
     do:
+      - actionId: bot_message
+        params:
+          person: keen
+          messages:
+          - text: "Well, sounds like we have some flaky tests here... Here is some [good information](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html) on flaky tests"
+            delay: 2000
+          - text: "Let me know when you're done going over it and ready to get those tests fixed!"
+            delay: 1300
       - actionId: finish_step
