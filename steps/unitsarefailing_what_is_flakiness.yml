@@ -1,1 +1,27 @@
-
+id: unitsarefailing_what_is_flakiness
+hints:
+- Try to run the tests multiple times and see if the results are consistent
+- You can run the tests using `psuedo code to run test`
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: keen
+      messages:
+      - text: "Navi told me they had a test suite that used to run against their actual DB 🙄, and Carl had a task to migrate it to in memory testing.."
+        delay: 2000
+      - text: "Try running the tests yourself and let me know if they passed."
+        delay: 3500
+trigger:
+  type: user_message
+  params: 
+    person: keen
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: keen
+          messages:
+          - text: "Well, sounds like we have some flaky tests here... Here is some [good information](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html) on flaky tests"
+            delay: 2000
+      - actionId: finish_step
