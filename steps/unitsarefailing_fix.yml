@@ -7,13 +7,8 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Cool, so you now know it’s that flaky file, can you fix the problem and :instruction[open a PR]"
+      - text: "Cool, so you now know what’s the problem test, fix the problem and :instruction[open a PR]"
         delay: 1300
-githubActions:
-  backend:
-    capabilities:
-    - process
-    testFile: "consistency.test.js"
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
