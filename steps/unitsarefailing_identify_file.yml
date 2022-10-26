@@ -1,13 +1,13 @@
 id: unitsarefailing_identify_file
 hints:
-- Look at the test results for a failed run
+- Use <command> to run a specific test
 startFlow:
   do:
   - actionId: bot_message
     params:
       person: keen
       messages:
-      - text: "Ok, great. Now that we've found the problem, can you find out which file contains the flaky tests?"
+      - text: "Ok, great. Now that we've found the failing test, let's try running it individually. Is it working?"
         delay: 1300
 trigger:
   type: user_message
@@ -20,14 +20,14 @@ trigger:
         params:
           text: "${userMessageText}"
           strings:
-            - "comments_test"
+            - "yes"
       then:
         do:
         - actionId: bot_message
           params:
             person: keen
             messages:
-            - text: "Yep, looks like that file contains all the flakes... Good job 👏👏"
+            - text: "Interesting. So it's working in isolation, yet failing when run together with the others. Well, looks like we have a flaky test on our hands... If you're interested, [this is my favorite read](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html) on flaky tests""
               delay: 1500
         - actionId: finish_step
       else:
@@ -36,5 +36,5 @@ trigger:
           params:
             person: keen
             messages:
-            - text: "Umm, I'm not seeing any errors there. Maybe it's a different file?"
+            - text: "Umm, it's working for me. Are you sure you have the right one? Please try again and let me know if it's working"
               delay: 1400
