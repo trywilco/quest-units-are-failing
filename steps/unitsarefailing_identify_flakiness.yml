@@ -10,9 +10,9 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Navi told me they had a test suite that used to run against their actual DB 🙄, and Carl had a task to migrate it to in memory testing.."
+      - text: "Hey. Navi told me they had a test suite that used to run against their actual DB 🙄. Carl was working on migrating it to in memory testing.."
         delay: 2000
-      - text: "Try running the tests yourself and let me know if they passed."
+      - text: "It was supposedly ready for production, but the tests are failing for me. Can you try running them?"
         delay: 3500
 trigger:
   type: user_message
@@ -24,8 +24,6 @@ trigger:
         params:
           person: keen
           messages:
-          - text: "That's weired. Looks like sometimes it passes and sometimes it doesn't."
+          - text: "I remember Carl said it worked for him, but it didn't work for me. Not sure what's going on here"
             delay: 2000
-          - text: "Try running it a few more times until you see the results are inconsistent and let me know when you're done."
-            delay: 1300
       - actionId: finish_step

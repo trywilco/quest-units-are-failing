@@ -7,7 +7,7 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Ok, great. Now we found the problem, can you find out which file contains the flaky tests?"
+      - text: "Ok, great. Now that we've found the problem, can you find out which file contains the flaky tests?"
         delay: 1300
 trigger:
   type: user_message
@@ -20,14 +20,14 @@ trigger:
         params:
           text: "${userMessageText}"
           strings:
-            - "comments_test.py"
+            - "comments_test"
       then:
         do:
         - actionId: bot_message
           params:
             person: keen
             messages:
-            - text: "Yep, looks like backend/app/api/routes/comments_test.py contains all the flakes... Good job  👏👏"
+            - text: "Yep, looks like that file contains all the flakes... Good job 👏👏"
               delay: 1500
         - actionId: finish_step
       else:
@@ -36,5 +36,5 @@ trigger:
           params:
             person: keen
             messages:
-            - text: "Umm, that doesn't look right. Maybe it's a different file?"
+            - text: "Umm, I'm not seeing any errors there. Maybe it's a different file?"
               delay: 1400
