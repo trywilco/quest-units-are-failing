@@ -1,0 +1,29 @@
+id: unitsarefailing_identify_flakiness
+learningObjectives: 
+- What are flakey tests and how to identify them
+hints:
+- Try to run the tests multiple times and see if the results are consistent
+- You can run the tests using `psuedo code to run test`
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: keen
+      messages:
+      - text: "Navi told me they had a test suite that used to run against their actual DB 🙄, and Carl had a task to migrate it to in memory testing.."
+        delay: 2000
+      - text: "Try running the tests yourself and let me know if they passed."
+        delay: 3500
+trigger:
+  type: user_message
+  params: 
+    person: keen
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: keen
+          messages:
+          - text: "That's weired. Looks like sometimes it passes and sometimes it doesn't."
+            delay: 1300
+      - actionId: finish_step
