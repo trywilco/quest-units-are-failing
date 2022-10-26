@@ -12,8 +12,8 @@ startFlow:
 githubActions:
   backend:
     capabilities:
-    - os
-    testFile: "consistency.test.py"
+    - process
+    testFile: "consistency.test.js"
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
