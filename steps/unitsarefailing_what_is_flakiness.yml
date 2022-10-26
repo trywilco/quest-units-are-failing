@@ -14,27 +14,11 @@ trigger:
   params: 
     person: keen
   flowNode:
-    if:
-      conditions:
-      - conditionId: text_contains_strings
+    do:
+      - actionId: bot_message
         params:
-          text: "${userMessageText}"
-          strings:
-            - "one_comment3"
-      then:
-        do:
-        - actionId: bot_message
-          params:
-            person: keen
-            messages:
-            - text: "Yep, that's the same one that's failing for me"
-              delay: 1500
-        - actionId: finish_step
-      else:
-        do:
-        - actionId: bot_message
-          params:
-            person: keen
-            messages:
-            - text: "Umm, strange. I'm seeing the failure in a different test. Are you sure you got the right one? Let's try again"
-              delay: 1400
+          person: keen
+          messages:
+          - text: "Oh wow, I have a different one failing for me. Looks like we have some flaky tests here"
+            delay: 1500
+      - actionId: finish_step
