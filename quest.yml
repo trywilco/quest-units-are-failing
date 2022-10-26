@@ -8,7 +8,7 @@ steps:
 - unitsarefailing_what_is_flakiness
 - unitsarefailing_identify_file
 # - unitsarefailing_identify_root_cause
-# - unitsarefailing_fix
+- unitsarefailing_fix
 duration: 1.5
 skills:
 - backend
