@@ -1,6 +1,4 @@
-id: unitsarefailing_identify_flakiness
-learningObjectives: 
-- What are flakey tests and how to identify them
+id: unitsarefailing_what_is_flakiness
 hints:
 - Try to run the tests multiple times and see if the results are consistent
 - You can run the tests using `psuedo code to run test`
@@ -24,8 +22,6 @@ trigger:
         params:
           person: keen
           messages:
-          - text: "That's weired. Looks like sometimes it passes and sometimes it doesn't."
+          - text: "Well, sounds like we have some flaky tests here... Here is some [good information](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html) on flaky tests"
             delay: 2000
-          - text: "Try running it a few more times until you see the results are inconsistent and let me know when you're done."
-            delay: 1300
       - actionId: finish_step
