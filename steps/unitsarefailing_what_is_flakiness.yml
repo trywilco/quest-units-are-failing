@@ -7,7 +7,7 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Try running it a few more times until you see the results are inconsistent and let me know when you're done."
+      - text: "Let's try running this a few more times to see what's happening? Let me know when you're done."
         delay: 1300
 trigger:
   type: user_message
@@ -19,7 +19,7 @@ trigger:
         params:
           person: keen
           messages:
-          - text: "Well, sounds like we have some flaky tests here... Here is some [good information](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html) on flaky tests"
+          - text: "Well, looks like we have some flaky tests on our hands... If you're interested, [this is my favorite read](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html) on flaky tests"
             delay: 2000
           - text: "Let me know when you're done going over it and ready to get those tests fixed!"
             delay: 1300
