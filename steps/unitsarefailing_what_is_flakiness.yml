@@ -7,20 +7,34 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Let's try running this a few more times to see what's happening? Let me know when you're done."
+      - text: "Which test is failing for you?"
         delay: 1300
 trigger:
   type: user_message
   params: 
     person: keen
   flowNode:
-    do:
-      - actionId: bot_message
+    if:
+      conditions:
+      - conditionId: text_contains_strings
         params:
-          person: keen
-          messages:
-          - text: "Well, looks like we have some flaky tests on our hands... If you're interested, [this is my favorite read](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html) on flaky tests"
-            delay: 2000
-          - text: "Let me know when you're done going over it and ready to get those tests fixed!"
-            delay: 1300
-      - actionId: finish_step
+          text: "${userMessageText}"
+          strings:
+            - "one_comment3"
+      then:
+        do:
+        - actionId: bot_message
+          params:
+            person: keen
+            messages:
+            - text: "Yep, that's the same one that's failing for me"
+              delay: 1500
+        - actionId: finish_step
+      else:
+        do:
+        - actionId: bot_message
+          params:
+            person: keen
+            messages:
+            - text: "Umm, strange. I'm seeing the failure in a different test. Are you sure you got the right one? Let's try again"
+              delay: 1400
