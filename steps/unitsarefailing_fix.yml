@@ -12,9 +12,8 @@ startFlow:
 githubActions:
   backend:
     capabilities:
-    - jest-puppeteer
-    - puppeteer
-    testFile: "profile.test.js"
+    - os
+    testFile: "consistency.test.py"
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
